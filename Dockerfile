@@ -10,16 +10,16 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        python3.12 python3.12-venv python3.12-dev \
+        python3.13 python3.13-venv python3.13-dev \
         python3-pip \
         curl ffmpeg ninja-build git aria2 git-lfs wget vim \
         libgl1 libglib2.0-0 build-essential gcc && \
     \
-    # make Python3.12 the default python & pip
-    ln -sf /usr/bin/python3.12 /usr/bin/python && \
+    # make Python3.13 the default python & pip
+    ln -sf /usr/bin/python3.13 /usr/bin/python && \
     ln -sf /usr/bin/pip3 /usr/bin/pip && \
     \
-    python3.12 -m venv /opt/venv && \
+    python3.13 -m venv /opt/venv && \
     \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
