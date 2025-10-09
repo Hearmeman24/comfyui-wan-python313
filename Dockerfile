@@ -10,6 +10,10 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+        software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
         python3.13 python3.13-venv python3.13-dev \
         python3-pip \
         curl ffmpeg ninja-build git aria2 git-lfs wget vim \
